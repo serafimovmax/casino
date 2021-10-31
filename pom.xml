@@ -16,6 +16,7 @@
 
     <testng.version>7.4.0</testng.version>
     <assertj.version>3.21.0</assertj.version>
+    <selenium-java.version>3.141.59</selenium-java.version>
   </properties>
 
   <profiles>
@@ -39,6 +40,24 @@
         <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw1/SumSubCalcTestSuite</suite.xml.name>
       </properties>
     </profile>
+
+    <profile>
+      <id>hw2-home-page-one</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+      <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw2/HomePageOneTestSuite</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>hw2-home-page-two</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw2/HomePageTwoTestSuite</suite.xml.name>
+      </properties>
+    </profile>
+
   </profiles>
 
   <dependencies>
@@ -61,6 +80,19 @@
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>${assertj.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium-java.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>4.4.3</version>
       <scope>test</scope>
     </dependency>
 
