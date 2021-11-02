@@ -1,6 +1,7 @@
 package com.epam.tc.hw2.ex1;
 
 import com.epam.tc.hw2.BaseHomePageTest;
+import com.epam.tc.hw2.Constants;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,22 +14,22 @@ public class HomePageOneTest extends BaseHomePageTest {
 
         //5. Assert menu buttons are displayed
         softAssert.assertEquals(webDriver.findElement(By.linkText("Home"))
-                                         .getText(), "Home");
+                                         .getText(), Constants.BUTTON_HOME.get());
         softAssert.assertEquals(webDriver.findElement(By.linkText("Home"))
                                          .isDisplayed(), true);
 
         softAssert.assertEquals(webDriver.findElement(By.linkText("Contact form"))
-                                         .getText(), "Contact form");
+                                         .getText(), Constants.BUTTON_CONTACT_FORM.get());
         softAssert.assertEquals(webDriver.findElement(By.linkText("Contact form"))
                                          .isDisplayed(), true);
 
         softAssert.assertEquals(webDriver.findElement(By.linkText("Service"))
-                                         .getText(), "Service");
+                                         .getText(), Constants.BUTTON_SERVICE.get());
         softAssert.assertEquals(webDriver.findElement(By.linkText("Service"))
                                          .isDisplayed(), true);
 
         softAssert.assertEquals(webDriver.findElement(By.linkText("Metals & Colors"))
-                                         .getText(), "Metals & Colors");
+                                         .getText(), Constants.BUTTON_METALS_COLORS.get());
         softAssert.assertEquals(webDriver.findElement(By.linkText("Metals & Colors"))
                                          .isDisplayed(), true);
 
@@ -66,15 +67,15 @@ public class HomePageOneTest extends BaseHomePageTest {
             softAssert.assertTrue(leftElement.isDisplayed());
         }
         softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Home']"))
-                                         .getText(), "Home");
+                                         .getText(), Constants.BUTTON_HOME.get());
         softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Contact form']"))
-                                         .getText(), "Contact form");
+                                         .getText(), Constants.BUTTON_CONTACT_FORM.get());
         softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Service']"))
-                                         .getText(), "Service");
+                                         .getText(), Constants.BUTTON_SERVICE.get());
         softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Metals & Colors']"))
-                                         .getText(), "Metals & Colors");
+                                         .getText(), Constants.BUTTON_METALS_COLORS.get());
         softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Elements packs']"))
-                                         .getText(), "Elements packs");
+                                         .getText(), Constants.BUTTON_ELEMENTS_PACK.get());
 
         softAssert.assertAll();
 

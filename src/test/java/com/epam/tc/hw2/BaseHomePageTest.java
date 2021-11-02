@@ -22,20 +22,20 @@ public class BaseHomePageTest {
                  .implicitlyWait(10L, TimeUnit.SECONDS);
 
         //1. Open test site by URL
-        webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        webDriver.navigate().to(Constants.HOME_PAGE.get());
 
         //2. Assert Browser title
-        softAssert.assertEquals(webDriver.getTitle(), "Home Page");
+        softAssert.assertEquals(webDriver.getTitle(), Constants.TITLE_HOME_PAGE.get());
 
         //3. Perform login
         webDriver.findElement(By.id("user-icon")).click();
-        webDriver.findElement(By.id("name")).sendKeys("Roman");
-        webDriver.findElement(By.id("password")).sendKeys("Jdi1234");
+        webDriver.findElement(By.id("name")).sendKeys(Constants.LOGIN.get());
+        webDriver.findElement(By.id("password")).sendKeys(Constants.PASSWORD.get());
         webDriver.findElement(By.id("login-button")).click();
 
         //4. Assert Username is loggined
         softAssert.assertEquals(webDriver.findElement(By.id("user-name"))
-                                         .getText(), "ROMAN IOVLEV");
+                                         .getText(), Constants.USER_NAME.get());
     }
 
     @AfterClass(alwaysRun = true)
