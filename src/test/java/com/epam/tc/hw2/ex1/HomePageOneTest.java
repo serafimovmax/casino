@@ -1,8 +1,12 @@
 package com.epam.tc.hw2.ex1;
 
+import static com.epam.tc.hw2.PageElements.IMG_TEXT;
+import static com.epam.tc.hw2.PageElements.LEFT_BUTTONS;
+import static com.epam.tc.hw2.PageElements.MENU_BUTTONS;
+
 import com.epam.tc.hw2.BaseHomePageTest;
-import com.epam.tc.hw2.Constants;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -13,25 +17,13 @@ public class HomePageOneTest extends BaseHomePageTest {
     public void homePageOneTest() {
 
         //5. Assert menu buttons are displayed
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Home"))
-                                         .getText(), Constants.BUTTON_HOME.get());
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Home"))
-                                         .isDisplayed(), true);
-
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Contact form"))
-                                         .getText(), Constants.BUTTON_CONTACT_FORM.get());
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Contact form"))
-                                         .isDisplayed(), true);
-
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Service"))
-                                         .getText(), Constants.BUTTON_SERVICE.get());
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Service"))
-                                         .isDisplayed(), true);
-
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Metals & Colors"))
-                                         .getText(), Constants.BUTTON_METALS_COLORS.get());
-        softAssert.assertEquals(webDriver.findElement(By.linkText("Metals & Colors"))
-                                         .isDisplayed(), true);
+        List<WebElement> menuButtons = webDriver.findElements(By.xpath(
+            "//ul[@class='uui-navigation nav navbar-nav m-l8']/li"));
+        for (WebElement menuElements : menuButtons) {
+            softAssert.assertTrue(menuElements.isDisplayed());
+            softAssert.assertEquals(menuButtons.stream().map(WebElement::getText)
+                                               .collect(Collectors.toList()), MENU_BUTTONS);
+        }
 
         //6. Assert that there are 4 images on the Index Page and they are displayed
         List<WebElement> imgIndex = webDriver.findElements(By.xpath("//div[@class='benefit-icon']"));
@@ -43,13 +35,8 @@ public class HomePageOneTest extends BaseHomePageTest {
         List<WebElement> imgText = webDriver.findElements(By.xpath(("//span[@class='benefit-txt']")));
         for (WebElement textImage : imgText) {
             softAssert.assertTrue(textImage.isDisplayed());
+            softAssert.assertEquals(imgText.stream().map(WebElement::getText).collect(Collectors.toList()), IMG_TEXT);
         }
-        softAssert.assertEquals(imgText.get(0).getText(), "To include good practices\n"
-            + "and ideas from successful\nEPAM project");
-        softAssert.assertEquals(imgText.get(1).getText(), "To be flexible and\ncustomizable");
-        softAssert.assertEquals(imgText.get(2).getText(), "To be multiplatform");
-        softAssert.assertEquals(imgText.get(3).getText(), "Already have good base\n"
-            + "(about 20 internal and\nsome external projects),\nwish to get more…");
 
         //8. Assert that the iframe exists
         softAssert.assertTrue(webDriver.findElement(By.id("frame")).isDisplayed());
@@ -62,20 +49,12 @@ public class HomePageOneTest extends BaseHomePageTest {
         webDriver.switchTo().parentFrame();
 
         //11. Assert that left section menu items are displayed and have proper text
-        List<WebElement> leftSelection = webDriver.findElements(By.id("mCSB_1"));
+        List<WebElement> leftSelection = webDriver.findElements(By.xpath("//ul[@class='sidebar-menu left']/li"));
         for (WebElement leftElement : leftSelection) {
             softAssert.assertTrue(leftElement.isDisplayed());
+            softAssert.assertEquals(leftSelection.stream().map(WebElement::getText)
+                                                 .collect(Collectors.toList()), LEFT_BUTTONS);
         }
-        softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Home']"))
-                                         .getText(), Constants.BUTTON_HOME.get());
-        softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Contact form']"))
-                                         .getText(), Constants.BUTTON_CONTACT_FORM.get());
-        softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Service']"))
-                                         .getText(), Constants.BUTTON_SERVICE.get());
-        softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Metals & Colors']"))
-                                         .getText(), Constants.BUTTON_METALS_COLORS.get());
-        softAssert.assertEquals(webDriver.findElement(By.xpath("//span[text()='Elements packs']"))
-                                         .getText(), Constants.BUTTON_ELEMENTS_PACK.get());
 
         softAssert.assertAll();
 
