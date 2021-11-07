@@ -43,9 +43,6 @@
 
     <profile>
       <id>hw2-home-page-one</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
       <properties>
       <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw2/HomePageOneTestSuite</suite.xml.name>
       </properties>
@@ -55,6 +52,23 @@
       <id>hw2-home-page-two</id>
       <properties>
         <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw2/HomePageTwoTestSuite</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>hw3-home-page-one</id>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/hw3/HomePageTestSuite</suite.xml.name>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>hw3-home-page-two</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <suite.xml.name>${project.basedir}/src/test/resources/hw3/HomePageTwoTestSuite</suite.xml.name>
       </properties>
     </profile>
 
