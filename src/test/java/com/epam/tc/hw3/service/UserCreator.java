@@ -10,7 +10,4 @@ public class UserCreator {
     public static User withCredentialsFromProperty() {
         return new User(LOGIN, USER_PASSWORD);
     }
-
-
-
 }

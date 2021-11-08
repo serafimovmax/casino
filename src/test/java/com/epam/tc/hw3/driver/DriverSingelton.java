@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class DriverSingelton {
 
     private static WebDriver webDriver;
+    private static final long TEN_SECONDS = 10;
 
     private DriverSingelton() {}
 
@@ -17,7 +18,7 @@ public class DriverSingelton {
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().timeouts()
-                     .implicitlyWait(10L, TimeUnit.SECONDS);
+                     .implicitlyWait(TEN_SECONDS, TimeUnit.SECONDS);
         }
         return webDriver;
     }

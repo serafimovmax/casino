@@ -11,7 +11,7 @@ public class HomePageTwoTest extends BaseHomePageTest {
     DifferentElementsPage diffElPage = new DifferentElementsPage(webDriver);
 
     @Test
-    public void homePageOneTest() throws InterruptedException {
+    public void homePageOneTest() {
 
         //5. Open Page
         diffElPage.clickServiceButton();
@@ -32,6 +32,5 @@ public class HomePageTwoTest extends BaseHomePageTest {
         softAssert.assertEquals(diffElPage.getLogsComponetText(), LOGS_TEXT);
 
         softAssert.assertAll();
-
     }
 }

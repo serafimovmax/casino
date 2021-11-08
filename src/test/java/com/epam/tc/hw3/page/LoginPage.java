@@ -39,7 +39,6 @@ public class LoginPage extends AbstractPage {
         return webDriver.getTitle();
     }
 
-
     public MainPage login(User user) {
         userIcon.click();
         loginField.sendKeys(user.getLogin());
@@ -47,5 +46,4 @@ public class LoginPage extends AbstractPage {
         loginButton.click();
         return new MainPage(webDriver);
     }
-
 }

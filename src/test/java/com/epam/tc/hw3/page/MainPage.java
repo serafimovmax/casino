@@ -41,8 +41,6 @@ public class MainPage extends AbstractPage {
         return null;
     }
 
-
-
     public String getUserName() {
         return userName.getText();
     }
@@ -101,6 +99,4 @@ public class MainPage extends AbstractPage {
         return leftMenu.stream().map(WebElement::getText)
                        .collect(Collectors.toList());
     }
-
-
 }

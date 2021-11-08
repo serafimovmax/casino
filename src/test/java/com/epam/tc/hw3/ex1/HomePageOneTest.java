@@ -38,6 +38,5 @@ public class HomePageOneTest extends BaseHomePageTest {
         softAssert.assertEquals(mainPage.getLeftMenuText(), LEFT_BUTTONS_TEXT);
 
         softAssert.assertAll();
-
     }
 }

@@ -43,10 +43,6 @@ public class BaseHomePageTest {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() {
-        softAssert = null;
-        loginPage = null;
-        mainPage = null;
-        someUser = null;
         DriverSingelton.closeWebDriver();
     }
 }
