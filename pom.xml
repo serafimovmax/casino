@@ -4,130 +4,46 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.epam.training.center.serafimov</groupId>
-  <artifactId>epam-homework-serafimov</artifactId>
-  <version>1.0-SNAPSHOT</version>
-
+  <groupId>com.epam.tc</groupId>
+  <artifactId>MaximSerafimov</artifactId>
+  <version>2021.08.05-SNAPSHOT</version>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+    <testng.configs.path>${project.build.testOutputDirectory}/testng</testng.configs.path>
+    <testng.suite.file>${testng.configs.path}/test.AddAndSubtractOperations.xml</testng.suite.file>
+
     <testng.version>7.4.0</testng.version>
-    <assertj.version>3.21.0</assertj.version>
+    <assertj-core.version>3.20.2</assertj-core.version>
+    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+    <checkstyle.version>8.42</checkstyle.version>
     <selenium-java.version>3.141.59</selenium-java.version>
+    <slf4j-simple.version>1.7.30</slf4j-simple.version>
+    <aspectj.version>1.9.5</aspectj.version>
+    <webdrivermanager.version>4.4.3</webdrivermanager.version>
+    <allure-testng.version>2.14.0</allure-testng.version>
+    <allure-maven.version>2.10.0</allure-maven.version>
   </properties>
-
-  <profiles>
-    <profile>
-      <id>hw1-all-calculator-test-suite</id>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw1/AllCalcTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hw1-mult-div-calculator-test-suite</id>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw1/MultDivCalcTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hw1-sum-sub-calculator-test-suite</id>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw1/SumSubCalcTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hw2-home-page-one</id>
-      <properties>
-      <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw2/HomePageOneTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hw2-home-page-two</id>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/suite.epam.tc.hw2/HomePageTwoTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hw3-home-page-one</id>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/hw3/HomePageTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>hw3-home-page-two</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <suite.xml.name>${project.basedir}/src/test/resources/hw3/HomePageTwoTestSuite</suite.xml.name>
-      </properties>
-    </profile>
-
-  </profiles>
-
-  <dependencies>
-    <dependency>
-      <groupId>com.epam.tat.module4</groupId>
-      <artifactId>calculator</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
-    </dependency>
-
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium-java.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>4.4.3</version>
-      <scope>test</scope>
-    </dependency>
-
-  </dependencies>
 
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.2</version>
+        <version>${maven-checkstyle-plugin.version}</version>
         <dependencies>
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.42</version>
+            <version>${checkstyle.version}</version>
           </dependency>
         </dependencies>
         <configuration>
           <configLocation>
-            <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
             https://raw.githubusercontent.com/DmitryKhodakovsky/epam-training-center-code-checkers-configurations/main/checkstyle/checkstyle.xml
           </configLocation>
           <encoding>${project.build.sourceEncoding}</encoding>
@@ -149,12 +65,125 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M5</version>
+        <version>${maven-surefire-plugin.version}</version>
         <configuration>
-          <suiteXmlFiles>${suite.xml.name}</suiteXmlFiles>
+          <argLine>
+            --illegal-access=permit
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <suiteXmlFiles>
+            <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
+          </suiteXmlFiles>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>add-and-subtract-operations-tests</id>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/test.AddAndSubtractOperations.xml</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>multiply-and-divide-operations-tests</id>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/test.MultiplyAndDivideOperations.xml</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>all-tests</id>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/test.all.xml</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>github-page-test-ex1-ex2-tests</id>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/test.GithubPageSeleniumEx1Ex2</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>page-object-tests</id>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/test.PageObject.xml</testng.suite.file>
+      </properties>
+    </profile>
+    <profile>
+      <id>page-object-allure-tests</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <testng.suite.file>${testng.configs.path}/test.PageObjectAllure.xml</testng.suite.file>
+      </properties>
+    </profile>
+  </profiles>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j-simple.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>calculator</groupId>
+      <artifactId>calculatorapp</artifactId>
+      <scope>system</scope>
+      <version>1.0</version>
+      <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium-java.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure-testng.version}</version>
+    </dependency>
+  </dependencies>
+
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+    <plugins>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>${allure-maven.version}</version>
+        <configuration>
+          <reportVersion>${allure-testng.version}</reportVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
