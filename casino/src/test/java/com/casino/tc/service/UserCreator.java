@@ -17,6 +17,4 @@ public class UserCreator {
     public static User withEmptyPassword() {
         return new User(USER_LOGIN, "");
     }
-
-
 }

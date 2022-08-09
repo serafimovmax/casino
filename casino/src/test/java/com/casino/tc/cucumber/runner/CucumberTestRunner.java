@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
     plugin = "pretty",
     monochrome = true,
     tags = "",
-    glue = "com/casino/tc/cucumber/steps", //!!!!!
-    features = "src/test/resources/feature" //!!!!!
+    glue = "com/casino/tc/cucumber/steps",
+    features = "src/test/resources/feature"
 )
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {
 }

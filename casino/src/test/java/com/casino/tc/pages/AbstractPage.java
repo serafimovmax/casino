@@ -8,8 +8,6 @@ public abstract class AbstractPage {
 
     protected abstract AbstractPage openPage();
 
-    protected static final int TEN_SECONDS = 10;
-
     protected AbstractPage(WebDriver webDriver) {
         this.webDriver = DriverSingleton.getWebDriver();
     }
