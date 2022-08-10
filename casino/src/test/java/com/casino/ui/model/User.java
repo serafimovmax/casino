@@ -1,4 +1,4 @@
-package com.casino.tc.model;
+package com.casino.ui.model;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.casino.tc.service;
+package com.casino.ui.service;
 
 import java.io.FileInputStream;
 import java.io.IOException;

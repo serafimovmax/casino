@@ -1,6 +1,6 @@
-package com.casino.tc.cucumber.steps;
+package com.casino.ui.cucumber.steps;
 
-import com.casino.tc.driver.DriverSingleton;
+import com.casino.ui.driver.DriverSingleton;
 import io.cucumber.java.After;
 
 public class CucumberHooks {

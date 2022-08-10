@@ -1,4 +1,4 @@
-package com.casino.tc.cucumber.steps;
+package com.casino.ui.cucumber.steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

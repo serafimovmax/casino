@@ -1,7 +1,7 @@
-package com.casino.tc.cucumber.steps;
+package com.casino.ui.cucumber.steps;
 
-import com.casino.tc.util.TestListener;
-import com.casino.tc.util.TextsForComparison;
+import com.casino.ui.util.TestListener;
+import com.casino.ui.util.TextsForComparison;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Feature;

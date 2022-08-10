@@ -2,7 +2,7 @@
 <suite name="est Suite Cucumber Casino">
   <test name="Test Casino Cucumber">
     <classes>
-      <class name="com.casino.tc.cucumber.runner.CucumberTestRunner"/>
+      <class name="com.casino.ui.cucumber.runner.CucumberTestRunner"/>
     </classes>
   </test>
 </suite>

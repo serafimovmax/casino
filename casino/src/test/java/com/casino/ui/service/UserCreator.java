@@ -1,6 +1,6 @@
-package com.casino.tc.service;
+package com.casino.ui.service;
 
-import com.casino.tc.model.User;
+import com.casino.ui.model.User;
 
 public class UserCreator {
     public static final String USER_LOGIN = DataProvider.getLoginData("userLogin");

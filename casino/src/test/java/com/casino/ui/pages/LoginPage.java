@@ -1,7 +1,7 @@
-package com.casino.tc.pages;
+package com.casino.ui.pages;
 
-import com.casino.tc.model.User;
-import com.casino.tc.service.DataProvider;
+import com.casino.ui.model.User;
+import com.casino.ui.service.DataProvider;
 import io.qameta.allure.Step;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;

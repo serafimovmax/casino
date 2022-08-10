@@ -1,6 +1,6 @@
-package com.casino.tc.pages;
+package com.casino.ui.pages;
 
-import com.casino.tc.driver.DriverSingleton;
+import com.casino.ui.driver.DriverSingleton;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractPage {

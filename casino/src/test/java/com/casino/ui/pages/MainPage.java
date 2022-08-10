@@ -1,4 +1,4 @@
-package com.casino.tc.pages;
+package com.casino.ui.pages;
 
 import io.qameta.allure.Step;
 import java.util.List;

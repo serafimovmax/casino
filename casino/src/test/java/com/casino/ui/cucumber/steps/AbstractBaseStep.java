@@ -1,11 +1,11 @@
-package com.casino.tc.cucumber.steps;
+package com.casino.ui.cucumber.steps;
 
-import com.casino.tc.driver.DriverSingleton;
-import com.casino.tc.model.User;
-import com.casino.tc.pages.LoginPage;
-import com.casino.tc.pages.MainPage;
-import com.casino.tc.service.DataProvider;
-import com.casino.tc.service.UserCreator;
+import com.casino.ui.driver.DriverSingleton;
+import com.casino.ui.model.User;
+import com.casino.ui.pages.LoginPage;
+import com.casino.ui.pages.MainPage;
+import com.casino.ui.service.DataProvider;
+import com.casino.ui.service.UserCreator;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractBaseStep {

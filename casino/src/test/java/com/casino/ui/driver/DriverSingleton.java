@@ -1,4 +1,4 @@
-package com.casino.tc.driver;
+package com.casino.ui.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;

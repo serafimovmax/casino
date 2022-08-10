@@ -1,6 +1,6 @@
-package com.casino.tc.util;
+package com.casino.ui.util;
 
-import com.casino.tc.driver.DriverSingleton;
+import com.casino.ui.driver.DriverSingleton;
 import io.qameta.allure.Attachment;
 import java.io.File;
 import java.io.IOException;
